@@ -3,10 +3,14 @@ const Sequelize = require('sequelize');
 const Database = require('../structures/PostgreSQL');
 
 const UserProfile = Database.db.define('userProfiles', {
-	userID: Sequelize.STRING,
-	inventory: {
+	userID: {
 		type: Sequelize.STRING,
-		defaultValue: '[]'
+		primaryKey: true,
+		unique: true
+	},
+	inventory: {
+		type: Sequelize.JSONB,
+		defaultValue: []
 	},
 	money: {
 		type: Sequelize.BIGINT(), // eslint-disable-line new-cap

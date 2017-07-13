@@ -1,6 +1,6 @@
 const { Command } = require('discord.js-commando');
 
-const BackgroundStore = require('../../structures/currency/BackgroundStore');
+const Store = require('../../structures/currency/Store');
 const Inventory = require('../../structures/currency/Inventory');
 const UserProfile = require('../../models/UserProfile');
 
@@ -17,7 +17,8 @@ module.exports = class UseBackgroundCommand extends Command {
 				{
 					key: 'name',
 					prompt: 'which background do you want to use?\n',
-					type: 'string'
+					type: 'string',
+					parse: val => val.toLowerCase()
 				}
 			]
 		});
@@ -29,7 +30,7 @@ module.exports = class UseBackgroundCommand extends Command {
 		if (name === 'default' || !name) {
 			background = { image: 'default' };
 		} else {
-			background = BackgroundStore.getItem(name);
+			background = Store.getItem(name);
 			if (!background) {
 				return msg.reply(
 					`a background with the name **${name.replace(/(\b\w)/gi, lc => lc.toUpperCase())}** does not exist.`
@@ -39,7 +40,7 @@ module.exports = class UseBackgroundCommand extends Command {
 			const inventory = await Inventory.fetchInventory(msg.author.id);
 			if (!inventory.hasItem(background)) {
 				return msg.reply(
-					`you do not own the background0 **${name.replace(/(\b\w)/gi, lc => lc.toUpperCase())}**`
+					`you do not own the background **${name.replace(/(\b\w)/gi, lc => lc.toUpperCase())}**`
 				);
 			}
 		}

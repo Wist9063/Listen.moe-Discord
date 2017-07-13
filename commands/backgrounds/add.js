@@ -3,9 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const request = require('snekfetch');
 
-const Background = require('../../models/Background');
-const BackgroundItem = require('../../structures/currency/BackgroundItem');
-const BackgroundStore = require('../../structures/currency/BackgroundStore');
+const Store = require('../../structures/currency/Store');
 
 module.exports = class BackgroundAddCommand extends Command {
 	constructor(client) {
@@ -20,7 +18,8 @@ module.exports = class BackgroundAddCommand extends Command {
 				{
 					key: 'name',
 					prompt: 'what should the background be called?\n',
-					type: 'string'
+					type: 'string',
+					parse: val => val.toLowerCase()
 				},
 				{
 					key: 'price',
@@ -44,21 +43,11 @@ module.exports = class BackgroundAddCommand extends Command {
 		const image = msg.attachments.first();
 		if (!image) return msg.reply('please attach an image to use for the background.');
 
-		const [, created] = await Background.findCreateFind({
-			where: { name },
-			defaults: {
-				name,
-				price,
-				description,
-				image: name.toLowerCase()
-			}
-		});
+		if (Store.hasItem(name)) return msg.reply(`an item with the name ${name} already exists.`);
 
-		if (!created) return msg.reply('that name is already in use. Please use a different one.');
+		const background = await Store.registerItem({ name, price, type: 'background', data: { description } });
 
-		BackgroundStore.registerItem(new BackgroundItem(name, description, price));
-
-		const filepath = path.join(__dirname, '..', '..', 'assets', 'profile', 'backgrounds', `${name.toLowerCase()}.png`);
+		const filepath = path.join(__dirname, '..', '..', 'assets', 'profile', 'backgrounds', `${background.image}.png`);
 		request.get(image.url).pipe(fs.createWriteStream(filepath));
 
 		return msg.reply('successfully added the background');

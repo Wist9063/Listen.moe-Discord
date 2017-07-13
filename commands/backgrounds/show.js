@@ -27,9 +27,11 @@ module.exports = class BackgroundShowCommand extends Command {
 
 		const inventory = await Inventory.fetchInventory(user.id);
 
+		const backgrounds = inventory.getItems().filter(itemGroup => itemGroup.item.type === 'background');
+
 		msg.embed({
 			title: `${user.username}'s backgrounds:`,
-			description: inventory.getItems().join(', ')
+			description: backgrounds.size ? backgrounds.keyArray().join(', ') : 'Can\'t show what you don\'t have.'
 		});
 	}
 };
