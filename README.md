@@ -14,12 +14,6 @@ The official discord bot that streams [Listen.moe](https://listen.moe) to your d
 
 This list assumes a prefix of `~~`.
 
-- `~~join`
-  Type this while in a voice channel to have the bot join that channel and start playing there.
-
-- `~~leave`
-  Makes the bot leave the voice channel it's currently in. Limited to users with the "manage server" permission.
-
 - `~~np`
   Gets the currently playing song and artist. If the song was requested by someone, also gives their name and a link to their profile on forum.listen.moe.
 
@@ -28,10 +22,10 @@ This list assumes a prefix of `~~`.
 
 - `~~unignore`
   Unignores commands in the current channel. Limited to users with the "manage server" / "manage channels" permission.
-  
+
 - `~~ignore all`
   Ignores commands in all channels on the guild. Limited to users with the "manage server" / "manage channels" permission.
-  
+
 - `~~unignore all`
   Unignores all channels on the guild. Limited to users with the "manage server" / "manage channels" permission.
 

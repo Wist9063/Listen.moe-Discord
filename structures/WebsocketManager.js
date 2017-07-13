@@ -23,26 +23,20 @@ module.exports = class WebsocketManager {
 		this.ws.on('close', this.onClose.bind(this));
 		this.ws.on('error', winston.error);
 
-		this.currentUsersAndGuildsGame();
+		this.currentSongGame();
 	}
 
-	async onMessage(data) {
+	onMessage(data) {
 		try {
 			if (!data) return;
 
-			const discordListeners = (await this.client.shard.broadcastEval(`
-				this.voiceConnections
-					.map(vc => vc.channel.members.filter(me => !(me.user.bot || me.selfDeaf || me.deaf)).size)
-					.reduce((sum, members) => sum + members, 0);
-			`)).reduce((prev, next) => prev + next, 0);
 			const parsed = JSON.parse(data);
 			this.client.radioInfo = {
 				songName: parsed.song_name,
 				artistName: parsed.artist_name,
 				animeName: parsed.anime_name,
 				listeners: parsed.listeners,
-				requestedBy: parsed.requested_by,
-				discordListeners
+				requestedBy: parsed.requested_by
 			};
 		} catch (error) {
 			winston.error(error);
@@ -54,18 +48,6 @@ module.exports = class WebsocketManager {
 		winston.warn(`[LISTEN.MOE][SHARD: ${this.client.shard.id}]: Connection closed, reconnecting...`);
 	}
 
-	async currentUsersAndGuildsGame() {
-		if (!this.client.customStream) {
-			try {
-				const results = await this.client.shard.fetchClientValues('guilds.size');
-				const guildsAmount = results.reduce((prev, next) => prev + next, 0);
-				if (this.client.streaming) this.client.user.setGame(`for ${this.client.radioInfo.discordListeners} on ${guildsAmount} servers`, 'https://twitch.tv/listen_moe'); // eslint-disable-line max-len
-				else this.client.user.setGame(`for ${this.client.radioInfo.discordListeners} on ${guildsAmount} servers`);
-			} catch (error) {} // eslint-disable-line no-empty
-		}
-		return setTimeout(this.currentSongGame.bind(this), 10000);
-	}
-
 	currentSongGame() {
 		if (!this.client.customStream) {
 			let game = 'Loading data...';
@@ -75,6 +57,5 @@ module.exports = class WebsocketManager {
 			if (this.client.streaming) this.client.user.setGame(game, 'https://twitch.tv/listen_moe');
 			else this.client.user.setGame(game);
 		}
-		return setTimeout(this.currentUsersAndGuildsGame.bind(this), 20000);
 	}
 };

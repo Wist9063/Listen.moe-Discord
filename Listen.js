@@ -4,7 +4,7 @@ const path = require('path');
 const winston = require('winston');
 require('moment-duration-format');
 
-const { COMMAND_PREFIX, OWNERS, RADIO_CHANNELS, STREAM } = process.env;
+const { COMMAND_PREFIX, OWNERS } = process.env;
 const ListenMoeClient = require('./structures/ListenMoeClient');
 const SequelizeProvider = require('./providers/Sequelize');
 
@@ -12,8 +12,7 @@ const client = new ListenMoeClient({
 	owner: OWNERS.split(','),
 	commandPrefix: COMMAND_PREFIX,
 	unknownCommandResponse: false,
-	disableEveryone: true,
-	stream: STREAM
+	disableEveryone: true
 });
 
 const Currency = require('./structures/currency/Currency');
@@ -54,18 +53,13 @@ client.on('error', winston.error)
 		client.websocketManager.connect();
 		Currency.leaderboard();
 	})
-	.on('ready', () => {
+	.on('ready', () =>
 		winston.info(oneLine`
 			[DISCORD][SHARD: ${client.shard.id}]: Client ready...
 			Logged in as ${client.user.tag}
 			(${client.user.id})
-		`);
-		for (const channel of RADIO_CHANNELS.split(',')) {
-			if (!client.guilds.has(channel)) continue;
-			const voiceChannel = client.guilds.get(channel);
-			client.voiceManager.joinVoice(voiceChannel);
-		}
-	})
+		`)
+	)
 	.on('message', async message => {
 		if (message.channel.type === 'dm') return;
 		if (message.author.bot) return;
@@ -119,8 +113,6 @@ client.on('error', winston.error)
 				After adding me to your server, join a voice channel and type \`~~join\` to bind me to that voice channel.
 				Keep in mind that you need to have the \`Manage Server\` permission to use this command.
 				**Commands:**
-				**\\~~join**: Type this while in a voice channel to have the bot join that channel and start playing there. Limited to users with the "manage server" permission.
-				**\\~~leave**: Makes the bot leave the voice channel it's currently in.
 				**\\~~np**: Gets the currently playing song and artist. If the song was requested by someone, also gives their name.
 				**\\~~ignore**: Ignores commands in the current channel. Admin commands are exempt from the ignore.
 				**\\~~unignore**: Unignores commands in the current channel.
