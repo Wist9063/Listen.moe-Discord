@@ -38,6 +38,7 @@ module.exports = class WebsocketManager {
 				listeners: parsed.listeners,
 				requestedBy: parsed.requested_by
 			};
+			this.currentSongGame();
 		} catch (error) {
 			winston.error(error);
 		}
