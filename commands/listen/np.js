@@ -35,14 +35,16 @@ module.exports = class NowPlayingCommand extends Command {
 			: '';
 		const song = `${Util.escapeMarkdown(nowplaying)}\n\n${Util.escapeMarkdown(anime)}\n${requestedBy}`;
 
-		return msg.channel.sendEmbed({
-			color: 15473237,
-			fields: [
-				{
-					name: 'Now playing',
-					value: song
-				}
-			]
+		return msg.channel.send({
+			embed: {
+				color: 15473237,
+				fields: [
+					{
+						name: 'Now playing',
+						value: song
+					}
+				]
+			}
 		});
 	}
 };

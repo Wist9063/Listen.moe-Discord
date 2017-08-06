@@ -206,17 +206,19 @@ module.exports = class PlaySongCommand extends Command {
 			}
 		}
 
-		queue.textChannel.sendEmbed({
-			color: 3447003,
-			author: {
-				name: `${msg.author.username}#${msg.author.discriminator} (${msg.author.id})`,
-				icon_url: msg.author.displayAvatarURL // eslint-disable-line camelcase
-			},
-			description: stripIndents`
-				Playlist: [${playlist.title}](https://www.youtube.com/playlist?list=${playlist.id}) has been added to the queue!
+		queue.textChannel.send( {
+			embed: {
+				color: 3447003,
+				author: {
+					name: `${msg.author.username}#${msg.author.discriminator} (${msg.author.id})`,
+					icon_url: msg.author.displayAvatarURL // eslint-disable-line camelcase
+				},
+				description: stripIndents`
+					Playlist: [${playlist.title}](https://www.youtube.com/playlist?list=${playlist.id}) has been added!
 
-				Check what's been added with: \`?queue\` or \`@Commando#3509 queue\`!
-			`
+					Check what's been added with: \`?queue\` or \`@Commando#3509 queue\`!
+				`
+			}
 		});
 
 		return null;
@@ -264,22 +266,24 @@ module.exports = class PlaySongCommand extends Command {
 		}
 
 		if (!song) {
-			queue.textChannel.sendMessage('We\'ve run out of songs! Better queue up some more tunes.');
+			queue.textChannel.send('We\'ve run out of songs! Better queue up some more tunes.');
 			queue.voiceChannel.leave();
 			this.queue.delete(guild.id);
 			return;
 		}
 
-		const playing = queue.textChannel.sendEmbed({
-			color: 3447003,
-			author: {
-				name: song.username,
-				icon_url: song.avatar // eslint-disable-line camelcase
-			},
-			description: `
-				${song.url.match(/^https?:\/\/(api.soundcloud.com)\/(.*)$/) ? `${song}` : `[${song}](${`${song.url}`})`}
-			`,
-			image: { url: song.thumbnail }
+		const playing = queue.textChannel.send({
+			embed: {
+				color: 3447003,
+				author: {
+					name: song.username,
+					icon_url: song.avatar // eslint-disable-line camelcase
+				},
+				description: `
+					${song.url.match(/^https?:\/\/(api.soundcloud.com)\/(.*)$/) ? `${song}` : `[${song}](${`${song.url}`})`}
+				`,
+				image: { url: song.thumbnail }
+			}
 		});
 		let stream;
 		let streamErrored = false;
@@ -307,7 +311,7 @@ module.exports = class PlaySongCommand extends Command {
 			})
 			.on('error', err => {
 				winston.error('Error occurred in stream dispatcher:', err);
-				queue.textChannel.sendMessage(`An error occurred while playing the song: \`${err}\``);
+				queue.textChannel.send(`An error occurred while playing the song: \`${err}\``);
 			});
 		queue.connection.player.opusEncoder.setPLP(0.01);
 		dispatcher.setVolumeLogarithmic(queue.volume / 5);

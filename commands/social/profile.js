@@ -159,7 +159,7 @@ module.exports = class ProfileCommand extends Command {
 		});
 		generate();
 
-		return msg.channel.sendFile(canvas.toBuffer(), `profile.png`);
+		return msg.channel.send({ files: [{ attachment: canvas.toBuffer(), name: 'profile.png' }] });
 	}
 
 	_wrapText(ctx, text, maxWidth) {
