@@ -206,7 +206,7 @@ module.exports = class PlaySongCommand extends Command {
 			}
 		}
 
-		queue.textChannel.send( {
+		queue.textChannel.send({
 			embed: {
 				color: 3447003,
 				author: {
