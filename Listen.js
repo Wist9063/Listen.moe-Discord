@@ -4,7 +4,7 @@ const path = require('path');
 const winston = require('winston');
 require('moment-duration-format');
 
-const { COMMAND_PREFIX, OWNERS } = process.env;
+const { COMMAND_PREFIX, OWNERS, TOKEN } = process.env;
 const ListenMoeClient = require('./structures/ListenMoeClient');
 const SequelizeProvider = require('./providers/Sequelize');
 
@@ -180,6 +180,6 @@ client.registry
 	.registerDefaults()
 	.registerCommandsIn(path.join(__dirname, 'commands'));
 
-client.login();
+client.login(TOKEN);
 
 process.on('unhandledRejection', err => winston.error(`Uncaught Promise Error: \n${err.stack}`));
