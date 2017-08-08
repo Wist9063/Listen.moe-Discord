@@ -31,7 +31,7 @@ module.exports = class NowPlayingCommand extends Command {
 		const requestedBy = radioInfo.requestedBy
 			? /\s/g.test(radioInfo.requestedBy)
 				? `🎉 **${Util.escapeMarkdown(radioInfo.requestedBy)}** 🎉`
-				: `Requested by: [${Util.escapeMarkdown(radioInfo.requestedBy)}](https://forum.listen.moe/u/${radioInfo.requestedBy})` // eslint-disable-line max-len
+				: `Requested by: ${Util.escapeMarkdown(radioInfo.requestedBy)}` // eslint-disable-line max-len
 			: '';
 		const song = `${Util.escapeMarkdown(nowplaying)}\n\n${Util.escapeMarkdown(anime)}\n${requestedBy}`;
 
