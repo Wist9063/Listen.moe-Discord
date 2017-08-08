@@ -16,7 +16,7 @@ module.exports = class NowPlayingCommand extends Command {
 	run(msg) {
 		if (msg.channel.type !== 'dm') {
 			const permission = msg.channel.permissionsFor(this.client.user);
-			if (!permission.hasPermission('EMBED_LINKS')) {
+			if (!permission.has('EMBED_LINKS')) {
 				return msg.say(oneLine`
 					I don't have permissions to post embeds in this channel,
 					if you want me to display the currently playing song, please enable it for me to do so!
