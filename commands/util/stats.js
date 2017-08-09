@@ -23,8 +23,6 @@ module.exports = class StatsCommand extends Command {
 
 		const guildsAmount = (await this.client.shard.fetchClientValues('guilds.size'))
 			.reduce((prev, next) => prev + next, 0);
-		const voiceConnectionsAmount = (await this.client.shard.fetchClientValues('voiceConnections.size'))
-			.reduce((prev, next) => prev + next, 0);
 
 		return msg.embed({
 			color: 15473237,
@@ -45,18 +43,8 @@ module.exports = class StatsCommand extends Command {
 					inline: true
 				},
 				{
-					name: 'Discord Listeners',
-					value: radioInfo.discordListeners,
-					inline: true
-				},
-				{
 					name: 'Servers',
 					value: guildsAmount,
-					inline: true
-				},
-				{
-					name: 'Voice Channels',
-					value: voiceConnectionsAmount,
 					inline: true
 				}
 			],

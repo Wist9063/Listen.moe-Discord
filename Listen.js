@@ -1,5 +1,5 @@
 const { FriendlyError } = require('discord.js-commando');
-const { oneLine, stripIndents } = require('common-tags');
+const { oneLine } = require('common-tags');
 const path = require('path');
 const winston = require('winston');
 require('moment-duration-format');
@@ -104,27 +104,6 @@ client.on('error', winston.error)
 	})
 	.on('disconnect', () => winston.warn(`[DISCORD][SHARD: ${client.shard.id}]: Disconnected!`))
 	.on('reconnect', () => winston.warn(`[DISCORD][SHARD: ${client.shard.id}]: Reconnecting...`))
-	.on('guildCreate', guild =>
-		/* eslint-disable max-len */
-		guild.defaultChannel.send({
-			embed: {
-				description: stripIndents`**LISTEN.moe discord bot by Crawl & vzwGrey**
-				**Usage:**
-				After adding me to your server, join a voice channel and type \`~~join\` to bind me to that voice channel.
-				Keep in mind that you need to have the \`Manage Server\` permission to use this command.
-				**Commands:**
-				**\\~~np**: Gets the currently playing song and artist. If the song was requested by someone, also gives their name.
-				**\\~~ignore**: Ignores commands in the current channel. Admin commands are exempt from the ignore.
-				**\\~~unignore**: Unignores commands in the current channel.
-				**\\~~ignore all**: Ignores commands in all channels on the guild.
-				**\\~~unignore all**: Unignores all channels on the guild.
-				**\\~~prefix !** Changes the bot's prefix for this server. Prefixes cannot contain whitespace, letters, or numbers - anything else is fair game. It's recommended that you stick with the default prefix of ~~, but this command is provided in case you find conflicts with other bots.
-				For additional commands and help, please visit [Github](https://github.com/WeebDev/listen.moe-discord)`,
-				color: 15473237
-			}
-		})
-		/* eslint-enable max-len */
-	)
 	.on('guildDelete', guild => client.provider.clear(guild.id))
 	.on('commandRun', (cmd, promise, msg, args) =>
 		winston.info(oneLine`[DISCORD][SHARD: ${client.shard.id}]: ${msg.author.tag} (${msg.author.id})
