@@ -7,8 +7,8 @@
   resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-1.0.2.tgz#b02d10ab028e2928ac592a051aaa4981a1941d03"
 
 "@types/node@^6.0.48":
-  version "6.0.85"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.85.tgz#ec02bfe54a61044f2be44f13b389c6a0e8ee05ae"
+  version "6.0.87"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.87.tgz#5ab5774f8351a33a935099fa6be850aa0b0ad564"
 
 acorn-jsx@^3.0.0:
   version "3.0.1"
@@ -130,19 +130,19 @@ aws4@^1.2.1:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
 babel-code-frame@^6.22.0:
-  version "6.22.0"
-  resolved "https://registry.yarnpkg.com/babel-code-frame/-/babel-code-frame-6.22.0.tgz#027620bee567a88c32561574e7fd0801d33118e4"
+  version "6.26.0"
+  resolved "https://registry.yarnpkg.com/babel-code-frame/-/babel-code-frame-6.26.0.tgz#63fd43f7dc1e3bb7ce35947db8fe369a3f58c74b"
   dependencies:
-    chalk "^1.1.0"
+    chalk "^1.1.3"
     esutils "^2.0.2"
-    js-tokens "^3.0.0"
+    js-tokens "^3.0.2"
 
 babel-runtime@^6.18.0:
-  version "6.25.0"
-  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.25.0.tgz#33b98eaa5d482bb01a8d1aa6b437ad2b01aec41c"
+  version "6.26.0"
+  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   dependencies:
     core-js "^2.4.0"
-    regenerator-runtime "^0.10.0"
+    regenerator-runtime "^0.11.0"
 
 balanced-match@^1.0.0:
   version "1.0.0"
@@ -219,7 +219,7 @@ caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
 
-chalk@^1.1.0, chalk@^1.1.1, chalk@^1.1.3:
+chalk@^1.1.1, chalk@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-1.1.3.tgz#a8115c55e4a702fe4d150abd3872822a7e09fc98"
   dependencies:
@@ -230,8 +230,8 @@ chalk@^1.1.0, chalk@^1.1.1, chalk@^1.1.3:
     supports-color "^2.0.0"
 
 chalk@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.0.1.tgz#dbec49436d2ae15f536114e76d14656cdbc0f44d"
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.1.0.tgz#ac5becf14fa21b99c6c92ca7a7d7cfd5b17e743e"
   dependencies:
     ansi-styles "^3.1.0"
     escape-string-regexp "^1.0.5"
@@ -290,7 +290,7 @@ combined-stream@^1.0.5, combined-stream@~1.0.5:
   dependencies:
     delayed-stream "~1.0.0"
 
-common-tags@^1.0.0, common-tags@^1.4.0:
+common-tags@^1.0.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/common-tags/-/common-tags-1.4.0.tgz#1187be4f3d4cf0c0427d43f74eef1f73501614c0"
   dependencies:
@@ -414,19 +414,19 @@ depd@^1.1.0:
 
 discord.js-commando@gawdl3y/discord.js-commando:
   version "0.9.0"
-  resolved "https://codeload.github.com/gawdl3y/discord.js-commando/tar.gz/de635acde97359828c97db237895e728f00e7fef"
+  resolved "https://codeload.github.com/gawdl3y/discord.js-commando/tar.gz/c60f969fb683233fb17bdd0e19c4e2fa84fc2132"
   dependencies:
-    common-tags "^1.4.0"
+    common-tags "^1.0.0"
     escape-string-regexp "^1.0.0"
-    require-all "^2.2.0"
+    require-all "^2.0.0"
 
 discord.js@hydrabolt/discord.js:
   version "12.0.0-dev"
-  resolved "https://codeload.github.com/hydrabolt/discord.js/tar.gz/317a3523372a8ef7e66a827c59900809e624c40a"
+  resolved "https://codeload.github.com/hydrabolt/discord.js/tar.gz/9b97fe292f62f18303c8a872511ce61f683e9dc3"
   dependencies:
-    long "^3.2.0"
+    long "^3.0.0"
     prism-media "^0.0.1"
-    snekfetch "^3.2.0"
+    snekfetch "^3.0.0"
     tweetnacl "^1.0.0"
     ws "^3.0.0"
 
@@ -486,8 +486,8 @@ eslint-scope@^3.7.1:
     estraverse "^4.1.1"
 
 eslint@^4.0.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.4.0.tgz#a3e153e704b64f78290ef03592494eaba228d3bc"
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.4.1.tgz#99cd7eafcffca2ff99a5c8f5f2a474d6364b4bd3"
   dependencies:
     ajv "^5.2.0"
     babel-code-frame "^6.22.0"
@@ -775,8 +775,8 @@ ini@~1.3.0:
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.4.tgz#0537cb79daf59b59a1a517dff706c86ec039162e"
 
 inquirer@^3.0.6:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-3.2.1.tgz#06ceb0f540f45ca548c17d6840959878265fa175"
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-3.2.2.tgz#c2aaede1507cc54d826818737742d621bef2e823"
   dependencies:
     ansi-escapes "^2.0.0"
     chalk "^2.0.0"
@@ -857,7 +857,11 @@ isstream@0.1.x, isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
-js-tokens@^3.0.0:
+js-string-escape@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/js-string-escape/-/js-string-escape-1.0.1.tgz#e2625badbc0d67c7533e9edc1068c587ae4137ef"
+
+js-tokens@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
 
@@ -873,8 +877,8 @@ jsbn@~0.1.0:
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
 
 jschardet@^1.4.2:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/jschardet/-/jschardet-1.5.0.tgz#a61f310306a5a71188e1b1acd08add3cfbb08b1e"
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/jschardet/-/jschardet-1.5.1.tgz#c519f629f86b3a5bedba58a88d311309eec097f9"
 
 json-schema-traverse@^0.3.0:
   version "0.3.1"
@@ -918,7 +922,7 @@ lodash@^4.0.0, lodash@^4.13.1, lodash@^4.17.1, lodash@^4.17.4, lodash@^4.3.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
-long@^3.2.0:
+long@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/long/-/long-3.2.0.tgz#d821b7138ca1cb581c172990ef14db200b5c474b"
 
@@ -950,8 +954,8 @@ mimic-fn@^1.0.0:
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-1.1.0.tgz#e667783d92e89dbd342818b5230b9d62a672ad18"
 
 miniget@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/miniget/-/miniget-1.0.0.tgz#019743264b33786c459f817df81482663df4941a"
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/miniget/-/miniget-1.0.1.tgz#6dc768ac6f43ecd097a443428ab7f2d373ad296d"
 
 minimatch@^3.0.2, minimatch@^3.0.4:
   version "3.0.4"
@@ -1140,10 +1144,11 @@ pg-types@1.*:
     postgres-interval "^1.1.0"
 
 pg@^6.0.0:
-  version "6.4.1"
-  resolved "https://registry.yarnpkg.com/pg/-/pg-6.4.1.tgz#3eabd8ca056814437c769f17ff7a0c36ac7023c5"
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/pg/-/pg-6.4.2.tgz#c364011060eac7a507a2ae063eb857ece910e27f"
   dependencies:
     buffer-writer "1.0.1"
+    js-string-escape "1.0.1"
     packet-reader "0.3.1"
     pg-connection-string "0.1.3"
     pg-pool "1.*"
@@ -1194,8 +1199,8 @@ postgres-interval@^1.1.0:
     xtend "^4.0.0"
 
 prebuild-install@~2.2.0:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-2.2.1.tgz#cdf16b041505bde8c55168abd7e58ea264e537ca"
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-2.2.2.tgz#dd47c4d61f3754fb17bbf601759e5922e16e0671"
   dependencies:
     expand-template "^1.0.2"
     github-from-package "0.0.0"
@@ -1272,17 +1277,17 @@ redis-commands@^1.2.0:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/redis-commands/-/redis-commands-1.3.1.tgz#81d826f45fa9c8b2011f4cd7a0fe597d241d442b"
 
-redis-parser@^2.5.0:
+redis-parser@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/redis-parser/-/redis-parser-2.6.0.tgz#52ed09dacac108f1a631c07e9b69941e7a19504b"
 
 redis@^2.0.0:
-  version "2.7.1"
-  resolved "https://registry.yarnpkg.com/redis/-/redis-2.7.1.tgz#7d56f7875b98b20410b71539f1d878ed58ebf46a"
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/redis/-/redis-2.8.0.tgz#202288e3f58c49f6079d97af7a10e1303ae14b02"
   dependencies:
     double-ended-queue "^2.1.0-0"
     redis-commands "^1.2.0"
-    redis-parser "^2.5.0"
+    redis-parser "^2.6.0"
 
 ref-struct@*:
   version "1.1.0"
@@ -1299,9 +1304,9 @@ ref@1:
     debug "2"
     nan "2"
 
-regenerator-runtime@^0.10.0:
-  version "0.10.5"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.10.5.tgz#336c3efc1220adcedda2c9fab67b5a7955a33658"
+regenerator-runtime@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.0.tgz#7e54fe5b5ccd5d6624ea6255c3473be090b802e1"
 
 request-promise-core@1.1.1:
   version "1.1.1"
@@ -1345,7 +1350,7 @@ request@^2.0.0, request@^2.74.0:
     tunnel-agent "^0.6.0"
     uuid "^3.0.0"
 
-require-all@^2.2.0:
+require-all@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/require-all/-/require-all-2.2.0.tgz#b4420c233ac0282d0ff49b277fb880a8b5de0894"
 
@@ -1476,9 +1481,9 @@ slice-ansi@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/slice-ansi/-/slice-ansi-0.0.4.tgz#edbf8903f66f7ce2f8eafd6ceed65e264c831b35"
 
-snekfetch@^3.2.0:
-  version "3.2.4"
-  resolved "https://registry.yarnpkg.com/snekfetch/-/snekfetch-3.2.4.tgz#74fed1f0530e312e5b08ecb189a529c14727afaf"
+snekfetch@^3.0.0:
+  version "3.2.9"
+  resolved "https://registry.yarnpkg.com/snekfetch/-/snekfetch-3.2.9.tgz#cdd28c7e88c889d86b9ff289a8e985a2f484f206"
 
 sntp@1.x.x:
   version "1.0.9"
@@ -1776,8 +1781,8 @@ yallist@^2.1.2:
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
 
 ytdl-core@^0.15.0:
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/ytdl-core/-/ytdl-core-0.15.0.tgz#ab74fcac9d2dcac2c5b995b27aecc0f7ec3ea586"
+  version "0.15.2"
+  resolved "https://registry.yarnpkg.com/ytdl-core/-/ytdl-core-0.15.2.tgz#202112a81d9f89069d06aa80367ad883aa1a9fd3"
   dependencies:
     html-entities "^1.1.3"
     m3u8stream "^0.1.1"
