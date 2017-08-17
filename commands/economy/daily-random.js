@@ -37,7 +37,7 @@ module.exports = class DailyRandomCommand extends Command {
 		await Daily.receive(msg.author.id, member.id);
 
 		return msg.reply(oneLine`
-			${member.displayName}#${member.user.discriminator} (${member.id}) has successfully received your daily
+			${member.user.tag} (${member.id}) has successfully received your daily
 			${Currency.convert(Daily.dailyDonationPayout)}.
 		`);
 	}
